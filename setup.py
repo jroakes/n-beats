@@ -3,7 +3,6 @@ import os
 from setuptools import setup
 
 BASE_VERSION = '1.3.2'  # update regardless whether you update keras or pytorch or both.
-FRAMEWORK = os.getenv('FRAMEWORK', 'keras')  # keras, pytorch.
 
 # common packages.
 INSTALL_REQUIRES = [
@@ -12,21 +11,10 @@ INSTALL_REQUIRES = [
     'matplotlib>=3.0'
 ]
 
-if FRAMEWORK == 'keras':
-    LIB_PACKAGE = ['nbeats_keras']
-    INSTALL_REQUIRES.extend([
-        'keras',
-        'tensorflow==2.0'
-    ])
-
-elif FRAMEWORK == 'pytorch':
-    LIB_PACKAGE = ['nbeats_pytorch']
-    INSTALL_REQUIRES.extend([
-        'torch',
-        'torchvision'
-    ])
-else:
-    raise ValueError('Unknown framework.')
+LIB_PACKAGE = ['nbeats_pytorch']
+INSTALL_REQUIRES.extend([
+    'torch'    
+])
 
 setup(
     name=f'nbeats-{FRAMEWORK}',
