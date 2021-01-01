@@ -17,7 +17,7 @@ INSTALL_REQUIRES.extend([
 ])
 
 setup(
-    name=f'nbeats-{FRAMEWORK}',
+    name='nbeats-pytorch',
     version=BASE_VERSION,
     description='N-Beats',
     author='Philippe Remy (Pytorch), Jean Sebastien Dhr (Keras)',
